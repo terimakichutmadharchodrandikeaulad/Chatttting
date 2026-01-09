@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: TMMChatbotV2
+    runtime: python
+    region: singapore
+    plan: free
+    branch: main
+
+    buildCommand: |
+      pip install --upgrade pip
+      pip install -r requirements.txt
+
+    startCommand: |
+      bash start
+
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+
+      - key: OWNER_ID
+        sync: false
+
+      - key: MONGO_URL
+        sync: false
